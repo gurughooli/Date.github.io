@@ -1,1 +1,2 @@
-# Date.github.io
+Developed a responsive Date Calculator web application using HTML, CSS, and JavaScript. The application features an intuitive user interface where users can input a start and end date. It calculates and displays the difference between the two dates in terms of years, months, days, hours, minutes, and seconds. The interface is styled with CSS for a modern look, including hover effects for buttons and a background image. The application also identifies and displays the day of the week for both the start and end dates.
+
