@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Date Calculator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  #container {
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+    background-color: #17202A;
+    color:rgb(217, 232, 247);
+    margin-left: -500px;
+  }
+  h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  label {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  input[type="date"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  #result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    text-align: left;
+    color: rgb(217, 232, 247);
+  }
+  input{
+    background-color: rgb(217, 232, 247);
+  }
+  body{
+    background: url(time.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+</style>
+</head>
+<body >
+<div id="container">
+  <h1 style="color: rgb(217, 232, 247);">Date Calculator</h1>
+  <label for="start">Enter the start date:</label>
+  <input type="date" id="start" name="start">
+  <br><br>
+  <label for="end">Enter the end date:</label>
+  <input type="date" id="end" name="end">
+  <br><br>
+  <button onclick="calculateDate()">Calculate</button>
+  <br><br>
+  <div id="result"></div>
+</div>
+
+<script>
+  function calculateDate() {
+    var startDate = document.getElementById("start").value;
+    var endDate = document.getElementById("end").value;
+    
+    var start = new Date(startDate);
+    var end = new Date(endDate);
+
+    var diff = Math.abs(end - start);
+    var years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+    var months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.4375));
+    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(diff / (1000 * 60 * 60));
+    var minutes = Math.floor(diff / (1000 * 60));
+    var seconds = Math.floor(diff / 1000);
+
+    var startDay = start.toLocaleDateString('en-US', { weekday: 'long' });
+    var endDay = end.toLocaleDateString('en-US', { weekday: 'long' });
+
+    var resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = "Difference between the dates:<br>" +
+    
+      years + " years<br>" +
+      months + " months<br>" +
+      days + " days<br>" +
+      hours + " hours<br>" +
+      minutes + " minutes<br>" +
+      seconds + " seconds<br>" +
+      "Start date is a " + startDay + "<br>" +
+      "End date is a " + endDay;
+  }
+</script>
+</body>
+</html>
+
+
